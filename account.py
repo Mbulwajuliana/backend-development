@@ -4,11 +4,13 @@ class BankAccount:
     self.first_name=first_name
     self.last_name=last_name
     self.bank=bank
-    self.balance=0
-    self.withdrawals=[]
-    self.deposits=[]
-    self.phone_number=phone_number
+     self.phone_number=phone_number
     self.loans=0
+    self.balance=0
+    self.deposits=[]
+    self.withdrawals=[]
+    
+   
 
   def account_name(self):
     name=("{} account for {} {}".format(
@@ -23,19 +25,33 @@ class BankAccount:
     
   def get_balance(self):
     return "The balance for {} is {}".format(self.account_name(), self.balance)
-  def withdrawal_statement(self):
-    self.withdrawals=self.withdrawals.append(withdraw)
-    return self.withdrawals
-  def deposit_statement(self):
-    self.deposits=self.deposits.append(deposit)
-    return self.deposits  
 
-  def give_loan(self,amount):
-      print("Recieve a loan of {}".format(amount))
-      self.loans=self.loans + amount
+  def show_withdrawal_statements(self):
+    for withdrawal in self.withdrawals:
+   print(withdrawal)
+
+  def show_deposit_statement(self):
+    for deposit in self.deposits
+    print(deposits)
+
+  def request_loan(self,amount):
+    if amount <= 0:
+      print("You cannot request a loan of that amount")
+    else:
+      self.loan = amount
+      print("You have been given a loan of {}".format(amount))  
+
+    
   def repay_loan(self,amount):
-    self.repay=self.loan - amount
-      print("Repayed a loan of {}".format(amount))
+    if amount <= 0:
+      print("You cannot repay with that amount")
+    elif self.loan == 0:
+      print("You don't have a loan at the amount")
+    elif  amount > self.loan:
+      print("Your loan is{}, please enter an amount that is less or equal".format(self.loan))
+    else:
+      self.loan -= amount
+      print("You have repaid your loan with {}. Your loan balance is {}".format(amount,self.loan))     
 
 
 
